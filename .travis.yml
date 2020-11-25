@@ -5,21 +5,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t jameshamlett/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t jhamlett/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true jameshamlett/react-test npm test
+  - docker run -e CI=true jhamlett/react-test npm test
 
 after_success:
-  - docker build -t jameshamlett/multi-client ./client
-  - docker build -t jameshamlett/multi-nginx ./nginx
-  - docker build -t jameshamlett/multi-server ./server
-  - docker build -t jameshamlett/multi-worker ./worker
+  - docker build -t jhamlett/multi-client ./client
+  - docker build -t jhamlett/multi-nginx ./nginx
+  - docker build -t jhamlett/multi-server ./server
+  - docker build -t jhamlett/multi-worker ./worker
    # Log in to the docker CLI
   # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_ID" --password-stdin
   # Empty comment to force a rebuild
-  - docker push jameshamlett/multi-client
-  - docker push jameshamlett/multi-nginx
-  - docker push jameshamlett/multi-server
-  - docker push jameshamlett/multi-worker
+  - docker push jhamlett/multi-client
+  - docker push jhamlett/multi-nginx
+  - docker push jhamlett/multi-server
+  - docker push jhamlett/multi-worker

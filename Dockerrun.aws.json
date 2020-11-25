@@ -3,25 +3,25 @@
     "containerDefinitions": [
         {
             "name": "client",
-            "image": "jameshamlett/multi-client",
+            "image": "jhamlett/multi-client",
             "hostname": "client",
             "essential": false
         },
         {
             "name": "server",
-            "image": "jameshamlett/multi-server",
+            "image": "jhamlett/multi-server",
             "hostname": "api",
             "essential": false
         },
         {
             "name": "worker",
-            "image": "jameshamlett/multi-worker",
+            "image": "jhamlett/multi-worker",
             "hostname": "worker",
             "essential": false
         },
         {
             "name": "nginx",
-            "image": "jameshamlett/multi-nginx",
+            "image": "jhamlett/multi-nginx",
             "essential": true,
             "portMappings": [
                 {
