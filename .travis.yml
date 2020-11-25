@@ -16,6 +16,7 @@ after_success:
   - docker build -t jameshamlett/multi-server ./server
   - docker build -t jameshamlett/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Empty comment to force a rebuild
   - docker push jameshamlett/multi-client
   - docker push jameshamlett/multi-nginx
   - docker push jameshamlett/multi-server
